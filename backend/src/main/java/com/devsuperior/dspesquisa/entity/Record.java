@@ -5,7 +5,6 @@ import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,7 +40,7 @@ public class Record implements Serializable {
 	@Column(name = "moment")
 	private Instant moment;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne
 	@JoinColumn(name = "id_game", foreignKey = @ForeignKey(name = "fk_record_game"))
 	private Game game;
 

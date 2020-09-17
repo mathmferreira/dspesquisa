@@ -4,12 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -46,11 +44,11 @@ public class Game implements Serializable {
 	@Column(name = "platform", nullable = false)
 	private Platform platform;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne
 	@JoinColumn(name = "id_genre", foreignKey = @ForeignKey(name = "fk_game_genre"))
 	private Genre genre;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "game", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "game")
 	private List<Record> records = new ArrayList<>();
 	
 }

@@ -4,10 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +33,7 @@ public class Genre implements Serializable {
 	@Column(name = "name", nullable = false)
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "genre", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "genre")
 	private List<Game> games = new ArrayList<>();
 
 }

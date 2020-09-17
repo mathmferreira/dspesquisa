@@ -23,6 +23,5 @@ public class GameDTO implements Serializable {
 		this.title = entity.getTitle();
 		this.platform = entity.getPlatform();
 	}
-	
 
 }
